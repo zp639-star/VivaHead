@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>VivaHead: High-Fidelity Animatable Full-Head Reconstruction from a Single Portrait Image</title>
+    <meta
+      name="description"
+      content="VivaHead reconstructs high-fidelity animatable full-head Gaussian avatars from a single portrait image."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Noto+Sans:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css?v=14" />
+  </head>
+  <body>
+    <main>
+      <section class="hero publication-header">
+        <div class="hero-body">
+          <div class="container title-container">
+            <h1 class="publication-title">
+              <span>VivaHead: High-Fidelity Animatable Full-Head Reconstruction</span>
+              <span>from a Single Portrait Image</span>
+            </h1>
+          </div>
+        </div>
+      </section>
+
+      <section class="hero is-small teaser">
+        <div class="hero-body">
+          <div class="container is-max-desktop">
+            <figure class="media-frame teaser-frame">
+              <img src="assets/images/teaser.png" alt="VivaHead teaser figure" />
+            </figure>
+            <h2 class="subtitle has-text-centered">
+              TL;DR: VivaHead reconstructs complete, animatable full-head avatars from a single portrait,
+              preserving identity while recovering plausible unseen head regions and vivid expressions.
+            </h2>
+          </div>
+        </div>
+      </section>
+
+      <section id="overview" class="hero is-small">
+        <div class="hero-body">
+          <div class="container is-max-desktop">
+            <h2 class="title is-3">Overview</h2>
+            <figure class="media-frame overview-frame">
+              <img src="assets/images/overview.png" alt="VivaHead method overview" />
+            </figure>
+            <h2 class="subtitle">
+              VivaHead augments a single portrait with synthesized multi-view and multi-expression observations,
+              predicts an initial canonical animatable full-head Gaussian avatar in a feed-forward pass, and refines
+              the result using the generated evidence.
+            </h2>
+          </div>
+        </div>
+      </section>
+
+      <section id="abstract" class="hero is-small is-light">
+        <div class="hero-body">
+          <div class="container is-max-desktop">
+            <h2 class="title is-3">Abstract</h2>
+            <div class="content abstract">
+              <p>
+                Animating a complete 3D head avatar from a single portrait image is highly challenging. A single
+                frontal image provides no evidence for the side or back of the head and contains only one static
+                expression, yet the recovered avatar must be geometrically complete, identity-consistent, and
+                faithfully drivable under arbitrary expressions. While animatable avatar methods have advanced
+                rapidly, most existing approaches still focus on frontal faces rather than the entire head. Conversely,
+                existing full-head methods are largely non-animatable. The few methods that attempt to support both
+                full-head reconstruction and animation are still limited, often rely on mesh-based representations,
+                and may struggle to produce plausible back-head geometry or reliably preserve facial identity.
+              </p>
+              <p>
+                We present <strong>VivaHead</strong>, a generation-augmented Gaussian avatar framework for
+                single-image full-head reconstruction and animation. Our method compensates for the severe information
+                deficiency of a single portrait with two complementary types of synthesized observations: multi-view
+                images under predefined viewpoints, and multi-expression images of the same identity via
+                diffusion-based reenactment. Together, these synthesized observations provide informative cues for
+                both full-head completion and animation detail recovery.
+              </p>
+              <p>
+                The source image, together with the generated multi-view and multi-expression images, is fed into a
+                feed-forward Gaussian reconstruction branch that predicts an initial canonical animatable full-head
+                avatar in a single forward pass. We further adopt an expression-neutral representation that suppresses
+                source-expression leakage into the canonical avatar. Starting from this initial prediction, we apply a
+                lightweight refinement stage that leverages the synthesized observations to improve geometry and
+                appearance details.
+              </p>
+              <p>
+                Experiments show that VivaHead outperforms existing approaches in both full-head reconstruction and
+                animation, producing more plausible back-head geometry, stronger frontal identity preservation, and
+                more vivid expression-dependent details.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="gallery" class="hero is-small">
+        <div class="hero-body">
+          <div class="container is-max-desktop">
+            <h2 class="title is-3">Results</h2>
+            <h2 class="subtitle">
+              Results are grouped by behavior: turntable reconstruction, animatable driving, and editing with
+              relighting. Videos load as they enter the viewport to keep the project page responsive.
+            </h2>
+
+            <div class="gallery-block">
+              <h3 class="title is-4 has-text-centered">Turntable</h3>
+              <div class="video-row four">
+                <figure class="result-item">
+                  <video data-src="assets/videos/ann.mp4" muted loop playsinline preload="none"></video>
+                </figure>
+                <figure class="result-item">
+                  <video data-src="assets/videos/obama.mp4" muted loop playsinline preload="none"></video>
+                </figure>
+                <figure class="result-item">
+                  <video data-src="assets/videos/turntable.mp4" muted loop playsinline preload="none"></video>
+                </figure>
+                <figure class="result-item">
+                  <video data-src="assets/videos/turntable2.mp4" muted loop playsinline preload="none"></video>
+                </figure>
+              </div>
+            </div>
+
+            <div class="gallery-block">
+              <h3 class="title is-4 has-text-centered">Animatable</h3>
+              <div class="video-row three">
+                <figure class="result-item portrait">
+                  <video data-src="assets/videos/sketch.mp4" muted loop playsinline preload="none"></video>
+                </figure>
+                <figure class="result-item portrait">
+                  <video data-src="assets/videos/libai.mp4" muted loop playsinline preload="none"></video>
+                </figure>
+                <figure class="result-item portrait">
+                  <video data-src="assets/videos/monalisa.mp4" muted loop playsinline preload="none"></video>
+                </figure>
+              </div>
+            </div>
+
+            <div class="gallery-block">
+              <h3 class="title is-4 has-text-centered">Editing &amp; Relighting</h3>
+              <div class="video-row four">
+                <figure class="result-item">
+                  <video data-src="assets/videos/ori.mp4" muted loop playsinline preload="none"></video>
+                </figure>
+                <figure class="result-item">
+                  <video data-src="assets/videos/editing.mp4" muted loop playsinline preload="none"></video>
+                </figure>
+                <figure class="result-item">
+                  <video data-src="assets/videos/relight1.mp4" muted loop playsinline preload="none"></video>
+                </figure>
+                <figure class="result-item">
+                  <video data-src="assets/videos/relight2.mp4" muted loop playsinline preload="none"></video>
+                </figure>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="liveportrait-grid" class="hero is-small">
+        <div class="hero-body">
+          <div class="container is-max-desktop">
+            <h2 class="title is-3">Nine-View Animation Grid</h2>
+            <div class="grid-collection" aria-label="LivePortrait animation grids">
+              <div class="nine-grid" aria-label="LivePortrait animation grid 1">
+                <video data-src="assets/grid/view_r0_c0--example_video.mp4" muted loop playsinline preload="none"></video>
+                <video data-src="assets/grid/view_r0_c1--example_video.mp4" muted loop playsinline preload="none"></video>
+                <video data-src="assets/grid/view_r0_c2--example_video.mp4" muted loop playsinline preload="none"></video>
+                <video data-src="assets/grid/view_r1_c0--example_video.mp4" muted loop playsinline preload="none"></video>
+                <video data-src="assets/grid/view_r1_c1--example_video.mp4" muted loop playsinline preload="none"></video>
+                <video data-src="assets/grid/view_r1_c2--example_video.mp4" muted loop playsinline preload="none"></video>
+                <video data-src="assets/grid/view_r2_c0--example_video.mp4" muted loop playsinline preload="none"></video>
+                <video data-src="assets/grid/view_r2_c1--example_video.mp4" muted loop playsinline preload="none"></video>
+                <video data-src="assets/grid/view_r2_c2--example_video.mp4" muted loop playsinline preload="none"></video>
+              </div>
+              <div class="nine-grid" aria-label="LivePortrait animation grid 2">
+                <video data-src="assets/grid_extra_1/view_r0_c0--example_video.mp4" muted loop playsinline preload="none"></video>
+                <video data-src="assets/grid_extra_1/view_r0_c1--example_video.mp4" muted loop playsinline preload="none"></video>
+                <video data-src="assets/grid_extra_1/view_r0_c2--example_video.mp4" muted loop playsinline preload="none"></video>
+                <video data-src="assets/grid_extra_1/view_r1_c0--example_video.mp4" muted loop playsinline preload="none"></video>
+                <video data-src="assets/grid_extra_1/view_r1_c1--example_video.mp4" muted loop playsinline preload="none"></video>
+                <video data-src="assets/grid_extra_1/view_r1_c2--example_video.mp4" muted loop playsinline preload="none"></video>
+                <video data-src="assets/grid_extra_1/view_r2_c0--example_video.mp4" muted loop playsinline preload="none"></video>
+                <video data-src="assets/grid_extra_1/view_r2_c1--example_video.mp4" muted loop playsinline preload="none"></video>
+                <video data-src="assets/grid_extra_1/view_r2_c2--example_video.mp4" muted loop playsinline preload="none"></video>
+              </div>
+              <div class="nine-grid" aria-label="LivePortrait animation grid 3">
+                <video data-src="assets/grid_extra_2/view_r0_c0--example_video.mp4" muted loop playsinline preload="none"></video>
+                <video data-src="assets/grid_extra_2/view_r0_c1--example_video.mp4" muted loop playsinline preload="none"></video>
+                <video data-src="assets/grid_extra_2/view_r0_c2--example_video.mp4" muted loop playsinline preload="none"></video>
+                <video data-src="assets/grid_extra_2/view_r1_c0--example_video.mp4" muted loop playsinline preload="none"></video>
+                <video data-src="assets/grid_extra_2/view_r1_c1--example_video.mp4" muted loop playsinline preload="none"></video>
+                <video data-src="assets/grid_extra_2/view_r1_c2--example_video.mp4" muted loop playsinline preload="none"></video>
+                <video data-src="assets/grid_extra_2/view_r2_c0--example_video.mp4" muted loop playsinline preload="none"></video>
+                <video data-src="assets/grid_extra_2/view_r2_c1--example_video.mp4" muted loop playsinline preload="none"></video>
+                <video data-src="assets/grid_extra_2/view_r2_c2--example_video.mp4" muted loop playsinline preload="none"></video>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container is-max-desktop has-text-centered">
+        <p>VivaHead</p>
+      </div>
+    </footer>
+
+    <script src="script.js?v=14"></script>
+  </body>
+</html>
