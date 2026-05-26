@@ -171,19 +171,29 @@
         <div class="hero-body">
           <div class="container comparison-container">
             <h2 class="title is-3">Baseline Comparisons</h2>
-            <div class="comparison-strip" aria-label="Baseline comparison videos">
-              <figure class="comparison-item">
-                <video data-src="assets/videos/comparisons/comparison_woman.mp4?v=3" muted loop playsinline preload="none"></video>
-              </figure>
-              <figure class="comparison-item">
-                <video data-src="assets/videos/comparisons/comparison_libai.mp4?v=3" muted loop playsinline preload="none"></video>
-              </figure>
-              <figure class="comparison-item">
-                <video data-src="assets/videos/comparisons/comparison_male.mp4?v=3" muted loop playsinline preload="none"></video>
-              </figure>
-              <figure class="comparison-item">
-                <video data-src="assets/videos/comparisons/comparison_smile.mp4?v=3" muted loop playsinline preload="none"></video>
-              </figure>
+            <div class="comparison-viewer" data-comparison-viewer>
+              <button class="comparison-button" type="button" data-comparison-prev aria-label="Previous comparison">
+                <span aria-hidden="true">&lt;</span>
+              </button>
+              <div class="comparison-window">
+                <div class="comparison-track" data-comparison-track aria-label="Baseline comparison videos">
+                  <figure class="comparison-item" data-comparison-slide>
+                    <video data-src="assets/videos/comparisons/comparison_woman.mp4?v=4" muted loop playsinline preload="none"></video>
+                  </figure>
+                  <figure class="comparison-item" data-comparison-slide>
+                    <video data-src="assets/videos/comparisons/comparison_libai.mp4?v=4" muted loop playsinline preload="none"></video>
+                  </figure>
+                  <figure class="comparison-item" data-comparison-slide>
+                    <video data-src="assets/videos/comparisons/comparison_male.mp4?v=4" muted loop playsinline preload="none"></video>
+                  </figure>
+                  <figure class="comparison-item" data-comparison-slide>
+                    <video data-src="assets/videos/comparisons/comparison_smile.mp4?v=4" muted loop playsinline preload="none"></video>
+                  </figure>
+                </div>
+              </div>
+              <button class="comparison-button" type="button" data-comparison-next aria-label="Next comparison">
+                <span aria-hidden="true">&gt;</span>
+              </button>
             </div>
           </div>
         </div>

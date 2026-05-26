@@ -234,31 +234,58 @@ video {
   max-width: min(1180px, calc(100vw - 3rem));
 }
 
-.comparison-strip {
-  display: flex;
+.comparison-viewer {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr) 44px;
   gap: 1rem;
-  padding-bottom: 0.7rem;
-  overflow-x: auto;
-  overscroll-behavior-x: contain;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
+  align-items: center;
+}
+
+.comparison-window {
+  overflow: hidden;
+}
+
+.comparison-track {
+  display: flex;
+  transition: transform 260ms ease;
 }
 
 .comparison-item {
-  flex: 0 0 min(760px, 82vw);
+  flex: 0 0 100%;
+  display: flex;
+  justify-content: center;
   margin: 0;
-  overflow: hidden;
+}
+
+.comparison-item video {
+  width: min(920px, 100%);
+  aspect-ratio: 1284 / 906;
   background: #ffffff;
   border: 1px solid var(--border);
   border-radius: 8px;
   box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
-  scroll-snap-align: start;
+  object-fit: contain;
 }
 
-.comparison-item video {
-  aspect-ratio: 1228 / 906;
+.comparison-button {
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: #111827;
   background: #ffffff;
-  object-fit: contain;
+  font-family: "Google Sans", "Noto Sans", sans-serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.08);
+}
+
+.comparison-button:disabled {
+  color: #9aa4b2;
+  cursor: default;
+  opacity: 0.45;
 }
 
 .grid-collection {
@@ -331,6 +358,17 @@ video {
     max-width: 18.5rem;
     margin-right: auto;
     margin-left: auto;
+  }
+
+  .comparison-viewer {
+    grid-template-columns: 36px minmax(0, 1fr) 36px;
+    gap: 0.5rem;
+  }
+
+  .comparison-button {
+    width: 36px;
+    height: 36px;
+    font-size: 1.05rem;
   }
 
   .two-up,
